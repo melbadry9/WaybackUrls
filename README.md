@@ -1,5 +1,8 @@
 ## Usage
-- `python3 way_urls.py domain.com`
+
+- `./way_urls.py domain.com`
+- `echo "domain.com" | ./way_urls.py`
 
 ## Donation
-[![Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/melbadry9)
+
+[![Coffee](https://www.buymeacoffee.com/assets/img/custom_images/black_img.png)](https://buymeacoffee.com/melbadry9)
