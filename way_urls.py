@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 import os 
 import sys
-import time
-import hashlib
 import requests
 import threading
 from urllib.parse import unquote
@@ -29,7 +27,7 @@ def get_data(domain):
             res = requests.get(url.format(domain), stream=True, timeout=60)
             with open(file_name, "a", encoding="utf-8") as file:
                 file.write(unquote(res.text))
-        except:
+        except requests.exceptions.ConnectionError:
             print_error(domain)
 
 def print_domain(domain):
