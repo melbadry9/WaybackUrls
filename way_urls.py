@@ -22,7 +22,7 @@ def get_data(domain):
     with download_lock:
         print_domain(domain)
         file_name = "way_urls/" + domain.replace("*.","") #+ ".txt"
-        url = "http://web.archive.org/cdx/search/cdx?url={}/*&output=text&fl=original&collapse=urlkey"
+        url = "http://web.archive.org/cdx/search/cdx?url={}&output=text&fl=original&collapse=urlkey"
         try:
             res = requests.get(url.format(domain), stream=True, timeout=60)
             with open(file_name, "a", encoding="utf-8") as file:
