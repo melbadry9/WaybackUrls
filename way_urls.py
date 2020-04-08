@@ -23,8 +23,12 @@ def get_data(domain):
         print_domain(domain)
         file_name = "way_urls/" + domain.replace("*.","") #+ ".txt"
         url = "http://web.archive.org/cdx/search/cdx?url={}&output=text&fl=original&collapse=urlkey"
+        headers = {
+            "Host": "web.archive.org",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:74.0) Gecko/20100101 Firefox/74.0"
+        }
         try:
-            res = requests.get(url.format(domain), stream=True, timeout=60)
+            res = requests.get(url.format(domain), stream=True, headers=headers,timeout=60)
             with open(file_name, "a", encoding="utf-8") as file:
                 file.write(unquote(res.text))
         except requests.exceptions.ConnectionError:
